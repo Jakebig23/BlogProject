@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BlogProject.Models.BlogPost>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Blog Posts</title>
+    <style>
+        .myDiv {
+            border: 5px outset red;
+            background-color : lightblue;
+            text-align : center;
+        }
+    </style>
+</head>
+<body>
+    <p>
+
+    </p>
+    @foreach (var item in Model)
+    {
+        
+            <div class="myDiv">
+                <a asp-controller="Blog" asp-action="Details" asp-route-id=@item.id>   @Html.DisplayFor(m => item.blogTitle)</a>
+                <p style="color:red">@Html.DisplayFor(m => item.content) </p>
+                <p>@Html.DisplayFor(m => item.blogDate) </p>
+            </div>
+        
+            }
+
+
+    </body>
+</html>
